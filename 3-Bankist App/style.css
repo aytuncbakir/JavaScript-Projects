@@ -94,6 +94,11 @@ nav {
   outline: none;
   color: #777;
 }
+.btn--color:hover,
+.btn--colir:focus {
+  outline: none;
+  color: #777;
+}
 
 /* MAIN */
 .app {
