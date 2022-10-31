@@ -191,6 +191,7 @@ class App {
     // Render workout on map as marker
     this._renderWorkoutMarker(workout);
     //Render workout on List
+    this._showHideDeleteButton();
     this._renderWorkout(workout);
 
     //Hide form + Clear input fields
@@ -200,6 +201,10 @@ class App {
     this._setLocalStorage();
   }
 
+  _showHideDeleteButton() {
+    if (this.#workouts.length > 0) btnDelete.classList.remove('hidden');
+    else btnDelete.classList.add('hidden');
+  }
   _addWorkoutMarker(workout) {
     L.marker(workout.coords)
       .addTo(this.#map)
@@ -330,6 +335,7 @@ class App {
     this._convertStringDataToWorkoutObject(data);
     //this.#workouts = data;
 
+    this._showHideDeleteButton();
     this.#workouts.forEach(work => {
       this._renderWorkout(work);
     });
